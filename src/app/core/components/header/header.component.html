@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg bg-red navbar-dark px-3 sticky-top" *ngIf="vm$ | async as vm">
+	<a routerLink="/" class="navbar-brand">Duncan McPherson</a>
+	<button class="navbar-toggler"
+			type="button"
+			data-toggle="collapse"
+			data-target="#navContent"
+			aria-controls="navContent"
+			[attr.aria-expanded]="vm.isMenuOpen"
+			aria-label="Toggle navigation"
+			(click)="toggleMenuState(vm.isMenuOpen)">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="navbar-collapse" [ngClass]="{collapse: !vm.isMenuOpen}" id="navContent">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+				<a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">Home</a>
+			</li>
+			<li class="nav-item">
+				<a routerLink="posts" routerLinkActive="active" class="nav-link">Posts</a>
+			</li>
+			<li class="nav-item">
+				<a routerLink="portfolio" routerLinkActive="active" class="nav-link">My Projects</a>
+			</li>
+		</ul>
+	</div>
+</nav>
